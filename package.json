@@ -1,0 +1,28 @@
+{
+  "name": "tp1-concerts",
+  "version": "1.0.0",
+  "description": "Une api de concerts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sammylood/TP1-41F.git"
+  },
+  "author": "Samuel Dorneval",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sammylood/TP1-41F/issues"
+  },
+  "homepage": "https://github.com/sammylood/TP1-41F#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
