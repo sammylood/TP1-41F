@@ -37,6 +37,35 @@ serveur.get("/concerts", async function (req, res){
 });
 
 
+// serveur.get("/concerts/artiste", async function (req, res){
+//     const docs = await db.collection("artiste").get();
+    
+//     const artistes = [];
+
+//     docs.forEach((doc)=>{
+//         const artiste = doc.data();
+//         concerts.push(artiste);
+//     });
+
+//     return res.status(200).json(artiste);
+// });
+
+
+serveur.get("/users", async function (req, res){
+    const docs = await db.collection("users").get();
+    
+    const users = [];
+
+    docs.forEach((doc)=>{
+        const user = doc.data();
+        users.push(user);
+    });
+
+    return res.status(200).json(users);
+});
+
+
+
 serveur.use(function (req, res, next){
     res.statusCode = 404;
 
