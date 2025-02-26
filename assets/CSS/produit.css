@@ -1,0 +1,111 @@
+.produit {
+  margin-top: 50px;
+}
+.produit .produit-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 30px;
+}
+
+.produit .produit-photo {
+  display: flex;
+  align-items: center;
+  background-color: var(--couleur-gris-pale);
+  justify-content: center;
+  flex-basis: 70%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 10px;
+}
+
+.produit .produit-photo div:first-of-type {
+  display: flex;
+  flex-basis: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.produit .produit-photo div:first-of-type:hover {
+    cursor: zoom-in;
+}
+.produit .produit-photo div:first-of-type img {
+  width: auto;
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.produit .produit-photo > * + * {
+  padding: 5px;
+}
+.produit .produit-photo > * + *:hover {
+  cursor: pointer;
+}
+.produit .produit-photo > * + * img {
+  max-height: 100px;
+  height: auto;
+  object-fit: cover;
+}
+
+.produit .produit-achat {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 30%;
+  gap: 30px;
+}
+.produit .produit-achat h1 {
+  font-size: 2.5em;
+}
+.produit .produit-miser {
+  display: flex;
+  flex-direction: column;
+}
+.produit .produit-miser input[type="number"] {
+  height: 50px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.produit .produit-description {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.produit .produit-description-list {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 30%;
+  gap: 20px;
+}
+.produit .produit-description-list span {
+  padding: 20px;
+  border-radius: 10px 0 0 10px;
+}
+.produit .produit-description-list span:hover {
+  background-color: var(--couleur-gris-pale);
+  font-weight: 700;
+  cursor: pointer;
+}
+.produit .produit-description-detail {
+  padding: 30px;
+  min-height: 300px;
+  flex-basis: 70%;
+  background-color: var(--couleur-gris-pale);
+}
+.produit .produit-description-detail h2 {
+  font-size: 1.8em;
+}
+
+.produit .catalogue {
+  margin-top: 150px;
+}
+.produit .catalogue article {
+  flex-basis: 23%;
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 870px) {
+  .produit .produit-header {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,150 @@
+nav {
+  background-color: var(--couleur-blanc);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 0 60px;
+  border-bottom: 1px solid var(--couleur-gris-pale);
+}
+
+nav * {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--couleur-texte);
+}
+
+nav > div {
+  display: flex;
+}
+
+nav > div a {
+  display: flex;
+  margin-right: auto;
+  padding: 10px 20px;
+  align-items: flex-start;
+  font-weight: 600;
+}
+
+nav .logo {
+  color: var(--couleur-primaire);
+  text-decoration: none;
+  font-size: 50px;
+  font-weight: 600;
+  text-transform: none;
+  padding-left: 0;
+}
+
+nav > div > div {
+  display: flex;
+  align-items: center;
+}
+
+nav .icon {
+  display: none;
+}
+nav .topnav a.icon {
+  background-color: var(--couleur-blanc);
+  color: var(--couleur-texte);
+}
+
+nav .topnav a:not(.logo):hover {
+  border: none;
+  color: var(--couleur-primaire);
+  background-color: var(--couleur-gris-pale);
+}
+
+/*   RESPONSIVE  */
+
+@media screen and (max-width: 1060px) {
+  nav {
+    position: sticky;
+  }
+  nav .container {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  nav .topnav > a:not(:first-child),
+  nav .topnav div a,
+  nav .dropdown .dropbtn {
+    display: none;
+  }
+  nav .search-user {
+    display: none;
+  }
+
+  nav .topnav a.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 20px;
+    color: var(--couleur-blanc);
+    background-color: var(--couleur-primaire);
+    margin: 35px 20px 0px 60px;
+    /* margin-block: 20px;
+        margin-left: 60px; */
+  }
+
+  nav > div > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-block: 20px;
+  }
+
+  nav > div > div * {
+    font-size: clamp(12px, 1.57vw, 15px);
+  }
+
+  .topnav.responsive .liens-nav {
+    height: 100dvh;
+    flex-grow: 1;
+  }
+  .topnav.responsive .liens-nav {
+    height: 100dvh;
+    flex-grow: 1;
+  }
+  .dropdown-content {
+    display: block;
+  }
+
+  nav .topnav.responsive a {
+    float: none;
+    display: flex;
+    text-align: left;
+  }
+
+  nav .topnav.responsive a.icon {
+    color: var(--couleur-blanc);
+  }
+  nav .topnav a:not(.logo):hover {
+    color: var(--couleur-primaire);
+  }
+}
+
+@media screen and (max-width: 870px) {
+  nav {
+    padding: 0 20px;
+  }
+  nav .topnav {
+    padding: 0;
+  }
+  nav a.logo {
+    padding-left: 0;
+  }
+  nav .topnav a.icon {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 607px) {
+  nav .topnav a.icon {
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: 433px) {
+  .nav .liens-nav {
+    font-size: clamp(15px, 1.5vw, 20px);
+  }
+}

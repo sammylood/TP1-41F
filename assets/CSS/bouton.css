@@ -1,0 +1,14 @@
+.bouton {
+  background-color: var(--couleur-primaire);
+  color: var(--couleur-blanc);
+  padding: 10px 30px;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.bouton:hover,
+.bouton:active {
+  opacity: 0.75;
+}

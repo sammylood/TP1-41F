@@ -1,0 +1,48 @@
+aside {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 20%;
+
+  & > form {
+    border: 1px solid var(--couleur-gris-border);
+    border-radius: 5px;
+    min-height: 50px;
+
+    & input[type="checkbox"] {
+      margin: 5px 5px 5px 5px;
+      height: 17px;
+      width: 17px;
+    }
+
+    & input span {
+      vertical-align: text-bottom;
+    }
+
+    & > .as-filtres {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+    & > .as-filtres-titres {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 870px) {
+  aside {
+    & > form {
+      & > .as-filtres {
+        display: none;
+      }
+      & > .as-filtres-titres {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        align-items: center;
+      }
+    }
+  }
+}
