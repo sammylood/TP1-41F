@@ -234,7 +234,7 @@ serveur.post("/concerts", async (req, res)=>{
 serveur.use(function (req, res, next){
     res.statusCode = 404;
 
-    res.render("404", { url: req.path });
+    res.json({ url: req.path });
     // const message = { msg: "La ressource n'existe pas" };
     // res.statusCode = 404;
     // res.json(message);
