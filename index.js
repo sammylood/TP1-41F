@@ -2,6 +2,7 @@ const express = require("express");
 const serveur = express();
 const path = require("path"); //Vient avec node.js et permet de formatter les urls sur toutes les plateformes
 const db = require("./config/db");
+const cors = require("cors");
 
 //Variable d'environnement
 const dotenv = require("dotenv");
@@ -9,7 +10,7 @@ dotenv.config();
 
 const port = process.env.PORT;
 
-
+serveur.use(cors());
 serveur.use(express.json()); //Permet de passer la donnée json dans le body
 serveur.use(express.urlencoded({extended:true})); //Permet de passer la donnee de formulaire
 
@@ -41,9 +42,9 @@ serveur.get("/concerts/:date", async function (req, res){
 
        const {date} = req.params;
 
-       const objDb = await db.collection("concerts").doc(id).get();
+       const objDb = await db.collection("concerts").doc(date).get();
 
-       const concert =  { id:objDb.id, ...objDb.data() };
+       const concert =  { date: objDb.date, ...objDb.data() };
     
         return res.status(200).json(concert);
 
