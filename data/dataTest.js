@@ -1,6 +1,5 @@
 const evenementsTest = [
         {
-          "id": "11129128",
           "type": "Concert",
           "titre": "Wild Flag at The Fillmore",
           "genre": "rock",
@@ -37,7 +36,6 @@ const evenementsTest = [
             ]
           },
           {
-            "id": "11129129",
             "type": "Concert",
             "titre": "Claude Hurtubise à la Maison de la Culture Ahuntsic-Cartierville",
             "genre": "folk",
@@ -74,7 +72,6 @@ const evenementsTest = [
             ]
             },
           {
-          "id": "11129130",
           "type": "Concert",
           "titre": "Les Hay Babies au Club Square Dix30",
           "genre": "folk",
@@ -103,7 +100,6 @@ const evenementsTest = [
             ]
           },
           {
-          "id": "11129131",
           "type": "Concert",
           "titre": "BB Jacques au Théâtre Fairmont Theatre",
           "genre": "rap",
@@ -140,7 +136,6 @@ const evenementsTest = [
             ]
           },
                   {
-          "id": "11129132",
           "type": "Concert",
           "titre": "Roch Voisine à la Salle Wilfrid-Pelletier, Place des Arts",
           "genre": "rock",
@@ -177,7 +172,6 @@ const evenementsTest = [
             ]
           },
                   {
-          "id": "11129133",
           "type": "Concert",
           "titre": "Mario Pelchat au Théâtre Manuvie",
           "genre": "Rock",
