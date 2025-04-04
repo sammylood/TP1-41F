@@ -50,7 +50,7 @@ serveur.get("/concerts/:date", async function (req, res){
 
 });
 
-serveur.get("/concerts", async function (req, res){
+serveur.get("/liste-concerts", async function (req, res){
     
     try {
     const docs = await db.collection("concerts").get(); // la variable doc contient le contenu de la collection recherchée ( dans ce cas-ci collection concerts )
@@ -67,10 +67,13 @@ serveur.get("/concerts", async function (req, res){
         }
 
     const concerts = [];
-
     docs.forEach((doc) => {
+        const key = doc.id;
         const concert = doc.data();
-        concerts.push(concert);
+        
+        console.log(key);
+        // concert.id = docRef.id;
+        concerts.push([key, concert]);
     });
 
     return res.status(200).json(concerts);
@@ -128,7 +131,7 @@ serveur.post("/concerts", async (req, res)=>{
     return res.status(201).json({ msg: "Le film a été ajouté" });
 });
 
-
+serveur.post("/concerts/image", (req, res) => { })
 
 
 
