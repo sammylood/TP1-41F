@@ -3,6 +3,7 @@ const serveur = express();
 const path = require("path"); //Vient avec node.js et permet de formatter les urls sur toutes les plateformes
 const db = require("./config/db");
 const cors = require("cors");
+const bcrypt = require("bcrypt");
 
 //Variable d'environnement
 const dotenv = require("dotenv");
@@ -231,7 +232,28 @@ serveur.post("/concerts/image", (req, res) => { })
 //     // On retourne une authentification
 
 
+serveur.post("/utilisateurs/inscription", async function (req, res){
+    //valider les infos
+    const { courriel, mdp } = req.body;
+    // const { body } = req
+    const userRefs = await db.collection("users").where("courriel", "==", courriel).get();
+    // Vérifier que l'utilisateur n'existe pas
+    if (userRefs.docs.length == 0){
+        // Hasher le mot de passe
+        const hash = await bcrypt.hash(mdp, 10);
+        const utilisateur = { ...req.body, mdp:hash };
+        // Enregistrer l'utilisateur
+        db.collection("users").add(utilisateur);
+        return res.status(200).json({msg: "L'utilisateur a été ajouté"});
+    }else{
+        return res.status(400).json({msg: "Le courriel existe déjà"});
+    }
+    // Créer un jeton
+});
 
+serveur.post("/utilisateurs/connexion", async function (req, res){
+
+});
 
 
 serveur.use(function (req, res, next){
