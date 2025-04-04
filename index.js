@@ -68,12 +68,12 @@ serveur.get("/liste-concerts", async function (req, res){
 
     const concerts = [];
     docs.forEach((doc) => {
-        const key = doc.id;
+        const key = {id: doc.id};
         const concert = doc.data();
         
         console.log(key);
         // concert.id = docRef.id;
-        concerts.push([key, concert]);
+        concerts.push({...key, ...concert});
     });
 
     return res.status(200).json(concerts);
