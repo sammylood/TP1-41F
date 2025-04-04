@@ -252,7 +252,22 @@ serveur.post("/utilisateurs/inscription", async function (req, res){
 });
 
 serveur.post("/utilisateurs/connexion", async function (req, res){
+    // À valider avec express validator
+    const {courriel, mdp} = req.body;
 
+    const userRefs = await db.collection("users").where("courriel", "==", courriel).get();
+     if(userRefs.docs.length > 0){
+        const utilisateur = userRefs.docs[0].data();
+        const motDePassePareils = await bcrypt.compare(mdp, utilisateur.mdp);
+        if(motDePassePareils){
+            return res.status(200).json({msg: "Utilisateur connecté"})
+        }else{
+            return res.status(400).json({msg: "Les mots de passe ne concordent pas"});
+        }
+     }else{
+        return res.status(400).json({msg: "Le courriel n'existe pas"});
+     }
+    
 });
 
 
