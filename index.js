@@ -68,7 +68,7 @@ serveur.get("/liste-concerts", async function (req, res){
 
     const concerts = [];
     docs.forEach((doc) => {
-        const key = {id: doc.id};
+        const key = {id: doc.id}; // Va chercher le id du "document" dans la base de données Firebase
         const concert = doc.data();
         
         console.log(key);
@@ -116,15 +116,15 @@ serveur.post("/concerts/initialiser", async (req, res)=>{
 
 
 
-serveur.post("/concerts", async (req, res)=>{
+serveur.post("/concerts", async function (req, res){
     
-    const { body } = req;
+    const  body  = req.body;
 
+    console.log(body);
 
-
-    const dateModif = dayjs().utc().toIsoString();
-    console.log(dateModif);
-    body.dateModif=dateModif;
+    // const dateModif = dayjs().utc().toIsoString();
+    // console.log(dateModif);
+    // body.dateModif=dateModif;
 
     await db.collection("concerts").add(body);
 
