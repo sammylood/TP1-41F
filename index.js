@@ -4,6 +4,7 @@ const path = require("path"); //Vient avec node.js et permet de formatter les ur
 const db = require("./config/db");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 //Variable d'environnement
 const dotenv = require("dotenv");
@@ -260,7 +261,12 @@ serveur.post("/utilisateurs/connexion", async function (req, res){
         const utilisateur = userRefs.docs[0].data();
         const motDePassePareils = await bcrypt.compare(mdp, utilisateur.mdp);
         if(motDePassePareils){
-            return res.status(200).json({msg: "Utilisateur connecté"})
+            delete utilisateur.mdp;
+            const optionsJeton = {
+                expiresIn:"1d"
+            }
+            const jeton = jwt.sign(utilisateur, process.env.JWT_SECRET, optionsJeton)
+            return res.status(200).json({msg: "Utilisateur connecté", jeton})
         }else{
             return res.status(400).json({msg: "Les mots de passe ne concordent pas"});
         }
