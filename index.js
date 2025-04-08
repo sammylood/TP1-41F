@@ -5,6 +5,7 @@ const db = require("./config/db");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const auth = require("./middlewares/auth");
 
 //Variable d'environnement
 const dotenv = require("dotenv");
@@ -118,7 +119,7 @@ serveur.post("/concerts/initialiser", async (req, res)=>{
 
 
 
-serveur.post("/concerts", async function (req, res){
+serveur.post("/concerts",  auth, async function (req, res){
     
     const  body  = req.body;
 
